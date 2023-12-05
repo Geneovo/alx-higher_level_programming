@@ -7,5 +7,6 @@ def no_c(my_string):
     for x in my_string_list:
         if x == 'c' or x == 'C':
             my_string_list[idx_count] = ""
-            idx_count += 1
-        return "".join(my_string_list)
+        idx_count += 1
+
+    return "".join(my_string_list)
