@@ -2,7 +2,7 @@
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
-        reture True
+        return True
     except Exception as x:
         print("Exception: {}".format(x), file=sys.stderr)
         return False
