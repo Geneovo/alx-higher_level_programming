@@ -32,7 +32,7 @@ class Square:
             self.__size = value
 
     @property
-    def postion(self):
+    def position(self):
         """retrives position of square"""
         return self.__position
 
@@ -65,7 +65,7 @@ class Square:
                 print()
 
                 for i in range(self.__size):
-                    print('' * self.__position[0], end='')
+                    print(' ' * self.__position[0], end='')
                     print('#' * self.__size)
         else:
             print()
