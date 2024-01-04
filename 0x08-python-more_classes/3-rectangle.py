@@ -1,4 +1,4 @@
-#!/usr/bin/pyth0n3
+#!/usr/bin/python3
 """Defines a class Rectangle"""
 
 
