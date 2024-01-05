@@ -63,7 +63,7 @@ class Rectangle:
 
         for x in range(self.__height):
             for z in range(self.__width):
-                rect = rect + '#'
+                rect = rect + str(self.print_symbol)
             if x != self.__height - 1:
                 rect = rect + '\n'
         return rect
