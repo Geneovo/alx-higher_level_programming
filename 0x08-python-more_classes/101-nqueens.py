@@ -98,7 +98,7 @@ def recursive_solution(board, row, queens, solutions):
         return (solutions)
 
     for z in range(len(board)):
-        if board[row][z] = " ":
+        if board[row][z] == " ":
             tmp_board = board_deepcopy(board)
             tmp_board[row][z] = "Q"
             xout(tmp_board, row, z)
