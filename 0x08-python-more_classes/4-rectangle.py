@@ -55,13 +55,13 @@ class Rectangle:
     def __str__(self)
         """Return a string rep of the rectangle"""
         rect = ""
-        if self.__width == or self.__height == 0:
+        if self.__width == 0 or self.__height == 0:
             return rect
 
         for x in range(self.__height):
             for z in range(self.__width):
                 rect = rect + '#'
-            if x !- self._-height - 1:
+            if x != self.__height - 1:
                 rect = rect + '\n'
         return rect
 
