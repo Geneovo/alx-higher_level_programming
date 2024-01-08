@@ -2,7 +2,7 @@
 """Modules that defines a function to add a new attribute to an object"""
 
 
-def add_attributes(obj, attr, value):
+def add_attributes(obj, att, value):
     """Adds a new attributes to an object if possible
     Args:
         obj (any): The object to add an attributes to
