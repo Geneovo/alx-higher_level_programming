@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Modules that defines a function to add a new attribute to an object"""
+"""Defines a function that adds attribute to objects"""
 
 
-def add_attributes(obj, att, value):
+def add_attribute(obj, att, value):
     """Adds a new attributes to an object if possible
     Args:
         obj (any): The object to add an attributes to
