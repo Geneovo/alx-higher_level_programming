@@ -1,0 +1,51 @@
+Using "7-base_geometry"
+
+
+Importing the function from the module:
+>>> BG = __import__("7-base_geometry").BaseGeometry
+
+Checking for module docstring:
+>>> m = __import__("7-base_geometry").__doc__
+>>> len(m) > 1
+True
+
+Checking for class docstring:
+>>> c = __import__("7-base_geometry").BaseGeometry__doc__
+>>> len(c) > 1
+True
+
+Checking for method docstring:
+>>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(mod) > 1
+True
+
+Creating an instance of BaseGeometry:
+>>> bg = BaseGeometry()
+
+Creating for area method:
+>>> bg.area()
+Traceback (most recent call last):
+  ...
+Exception: area() is not implemented
+
+Checking for valid integer values:
+>>> bg.integer_validator("my_int", 12)
+>>> bg.intger_validator("width", 89)
+
+Checking for non-integer value:
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+  ...
+TypeError: name must be an integer
+
+Checking for non-positive integer value:
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+  ...
+ValueError: age must be greater than 0
+
+Checking for negative integer value:
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+  ...
+ValueError: distance must be greater than 0
