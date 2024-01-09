@@ -1,4 +1,10 @@
-Using "7-base_geometry"
+The ``7-base_geometry`` module
+
+
+Test case for 7-base_geometry.py
+
+
+Using ``BaseGeometry``
 
 
 Importing the function from the module:
@@ -10,42 +16,60 @@ Checking for module docstring:
 True
 
 Checking for class docstring:
->>> c = __import__("7-base_geometry").BaseGeometry__doc__
+>>> c = __import__("7-base_geometry").BaseGeometry.__doc__
 >>> len(c) > 1
 True
 
 Checking for method docstring:
->>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
->>> len(mod) > 1
+>>> mod1 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(mod1) > 1
+True
+>>> mod2 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(mod2) > 1
 True
 
-Creating an instance of BaseGeometry:
->>> bg = BaseGeometry()
-
-Creating for area method:
->>> bg.area()
+Checking for area failure:
+>>> b = BG()
+>>> b.area()
 Traceback (most recent call last):
-  ...
+    ...
 Exception: area() is not implemented
 
-Checking for valid integer values:
->>> bg.integer_validator("my_int", 12)
->>> bg.intger_validator("width", 89)
-
-Checking for non-integer value:
->>> bg.integer_validator("name", "John")
+Checking too many arguments for area:
+>>> b,area(1)
 Traceback (most recent call last):
-  ...
-TypeError: name must be an integer
+    ...
+TypeError: area() takes 1 positional argument but 2 were given
 
-Checking for non-positive integer value:
->>> bg.integer_validator("age", 0)
-Traceback (most recent call last):
-  ...
-ValueError: age must be greater than 0
+Checking integer validator for passing integer:
+>>> b.integer_validator("age", 1)
 
-Checking for negative integer value:
->>> bg.integer_validator("distance", -4)
+Checking for integer < 0:
+>>> b.integer_validator("distance", -6)
 Traceback (most recent call last):
-  ...
-ValueError: distance must be greater than 0
+    ...
+ValueError: integer must be greater than 0
+
+Checking for interger == 0:
+>>> b.integer_validator("age", 1)
+Traceback (most recent call last):
+    ...
+ValueError: integer must be greater than 0
+
+Checking for no arguments to integer_validator:
+>>> b.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: interger_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking for only 1 argument to interger_validator:
+>>> b.integer_validator("integer")
+Traceback (most recent call last):
+     ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Checking for too many arguments:
+>>> b.interger_validator("integer", 1, 2)
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
