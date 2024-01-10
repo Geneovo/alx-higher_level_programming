@@ -16,7 +16,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-        def to_json(self, attrs=None):
+    def to_json(self, attrs=None):
             """Raises a dictionary representation of a student instance
             Args:
                 attrs (list): List of attribute name to add
