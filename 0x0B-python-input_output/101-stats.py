@@ -1,8 +1,6 @@
 #!/usr/bin/Python3
 """Script that reads stdin line by line and computes matrics"""
 
-import sys
-
 
 def print_metrics(total_size, status_codes):
     """Prints metrics"""
@@ -11,10 +9,12 @@ def print_metrics(total_size, status_codes):
         print("{}: {}".format(code, status_codes[code]))
 
 
-def main():
-    """Main function to compute metrics"""
+if __name__ == "__main__":
+    import sys
+
     total_size = 0
-    status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    status_codes = {}
+    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
 
     try:
@@ -33,8 +33,11 @@ def main():
                 pass
 
             try:
-                if line[-2] in status_codes:
-                    status_codes[line[-2]] += 1
+                if line[-2] in valid_codes:
+                    if status_codes.get(line[-2], -1) == -1:
+                        status_codes[line[-2]] += 1
+                    else:
+                        status_codes[line[-2]] += 1
             except IndexError:
                 pass
 
@@ -43,7 +46,3 @@ def main():
     except KeyboardInterrupt:
         print_metrics(total_size, status_codes)
         raise
-
-
-if __name__ == "__main__":
-    main()
