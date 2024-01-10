@@ -14,31 +14,36 @@ def print_metrics(total_size, status_codes):
 def main():
     """Main function to compute metrics"""
     total_size = 0
-    status_codes = {
-        '200': 0,
-        '301': 0,
-        '400': 0,
-        '401': 0,
-        '403': 0,
-        '404': 0,
-        '405': 0,
-        '500': 0
-    }
+    status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
 
     try:
         for line in sys.stdin:
-            count += 1
-            parts = line.split()
-            if len(parts) >= 7:
-                total_size += int(parts[-1])
-                sc = parts[-2]
-                if sc in status_codes:
-                    status_codes[sc] += 1
-
-            if count % 10 == 0:
+            if count == 10:
                 print_metrics(total_size, status_codes)
+                count = 1
+            else:
+                count += 1
+
+            line = line.split()
+
+            try:
+                total_size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if line[-2] in status_codes:
+                    status_codes[line[-2]] += 1
+            except IndexError:
+                pass
+
+        print_metrics(total_size, status_codes)
 
     except KeyboardInterrupt:
         print_metrics(total_size, status_codes)
         raise
+
+
+if __name__ == "__main__":
+    main()
