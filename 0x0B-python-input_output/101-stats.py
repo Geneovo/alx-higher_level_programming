@@ -1,14 +1,14 @@
 #!/usr/bin/Python3
-"""Module is a script that reads stdin line by line and computes matrics"""
+"""Script that reads stdin line by line and computes matrics"""
 
 import sys
 
 
 def print_metrics(total_size, status_codes):
     """Prints metrics"""
-    print("File size: {}".format(toatal_size))
+    print("File size: {}".format(total_size))
     for code in sorted(status_codes):
-        print("{}: {}".format(code, status_codes[codes]))
+        print("{}: {}".format(code, status_codes[code]))
 
 
 def main():
@@ -24,6 +24,7 @@ def main():
         '405': 0,
         '500': 0
     }
+    count = 0
 
     try:
         for line in sys.stdin:
