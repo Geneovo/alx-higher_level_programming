@@ -17,13 +17,13 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-            """Raises a dictionary representation of a student instance
-            Args:
-                attrs (list): List of attribute name to add
-            Returns:
-                dict: Dictionary representation of the student instance
-            """
-            if (type(attrs) == list and
-                    all(type(ele) == str for ele in attrs)):
-                return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-            return self.__dict__
+        """Raises a dictionary representation of a student instance
+        Args:
+            attrs (list): List of attribute name to add
+        Returns:
+            dict: Dictionary representation of the student instance
+        """
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__
