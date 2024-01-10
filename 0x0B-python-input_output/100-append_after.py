@@ -7,7 +7,7 @@ def append_after(filename="", search_string="", new_string=""):
     Args:
         filename (str): Name of the file to update
         search_string (str): String to search for in the file
-        new_string (str): string to append after each occurrence of earch_string
+        new_string (str): string to append after each occurrence
     """
     lines = []
     with open(filename, "r") as f:
