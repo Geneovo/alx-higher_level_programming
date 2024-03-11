@@ -4,7 +4,7 @@ const { argv } = require('process');
 const size = parseInt(argv[2]);
 
 const printSquare = (size) => {
-  const ro = 'X'.repeat(size);
+  const row = 'X'.repeat(size);
   for (let i = 0; i < size; i++) console.log(row);
 };
 
