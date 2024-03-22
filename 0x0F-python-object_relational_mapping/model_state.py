@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" contains the class definition of a state and an instance Base """
+"""Contains the class definition of a state and an instance Base
+"""
 import sys
 from model_state import Base, State
 
